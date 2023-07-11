@@ -1,0 +1,120 @@
+\documentclass[12pt]{article}
+\usepackage{graphicx}
+\usepackage[spanish]{babel}
+\usepackage{amsmath,amsthm,amssymb}
+
+\title{Formulario}
+\author{Sebastian PA}
+\date{Julio 2023}
+
+\begin{document}
+
+\maketitle
+
+\section*{Prestaciones}
+\begin{equation}
+    Prestaciones\hspace{2pt}X = \frac{1}{Tiempo\hspace{2pt}de\hspace{2pt}Ejecucion\hspace{2pt}X}
+\end{equation}  
+
+\begin{equation}
+    Prestaciones\hspace{2pt}X > Prestaciones\hspace{2pt}Y
+\end{equation}
+
+\begin{equation}
+    \frac{1}{Tiempo\hspace{2pt}de\hspace{2pt}Ejecucion\hspace{2pt}de\hspace{2pt}X} > \frac{1}{Tiempo\hspace{2pt}de\hspace{2pt}Ejecucion\hspace{2pt}de\hspace{2pt}Y}
+\end{equation}
+
+\begin{equation}
+    Tiempo\hspace{2pt}de\hspace{2pt}Ejecucion\hspace{2pt}de\hspace{2pt}X > Tiempo\hspace{2pt}de\hspace{2pt}Ejecucion\hspace{2pt}de\hspace{2pt}Y
+\end{equation}
+
+\begin{equation}
+    \frac{Prestaciones\hspace{2pt}X}{Prestaciones\hspace{2pt}Y} = n
+\end{equation}
+
+\begin{equation}
+    \frac{Prestaciones\hspace{2pt}X}{Prestaciones\hspace{2pt}Y} = \frac{Tiempo\hspace{2pt}de\hspace{2pt}Ejecucion\hspace{2pt}de\hspace{2pt}Y}{Tiempo\hspace{2pt}de\hspace{2pt}Ejecucion\hspace{2pt}de\hspace{2pt}X} = n
+\end{equation}
+
+\subsection*{Prestaciones de la CPU y sus factores}
+
+\begin{equation}  Tiempo\hspace{2pt}de\hspace{2pt}ejec.\hspace{2pt}CPU=Ciclos\hspace{2pt}de\hspace{2pt}reloj\hspace{2pt}de\hspace{2pt}CPU\hspace{2pt}\times\hspace{2pt}Tiempo\hspace{2pt}del\hspace{2pt}Ciclo\hspace{2pt}del\hspace{2pt}Reloj
+\end{equation}
+
+\begin{equation}
+    Tiempo\hspace{2pt}de\hspace{2pt}ejecucion\hspace{2pt}de\hspace{2pt} CPU = \frac{Ciclos\hspace{2pt}de\hspace{2pt}reloj\hspace{2pt}de\hspace{2pt}CPU}{Frecuencia\hspace{2pt}del\hspace{2pt}reloj}
+\end{equation}
+
+\subsection*{Prestaciones de las Instrucciones}
+
+\begin{equation}
+    Ciclos\hspace{2pt}de\hspace{2pt}reloj\hspace{2pt}de\hspace{2pt}CPU = Instrucciones\hspace{2pt}de\hspace{2pt}un\hspace{2pt}programa\hspace{2pt}\times\hspace{2pt}Media\hspace{2pt}de\hspace{2pt}Ciclos\hspace{2pt}por\hspace{2pt}Instruccion
+\end{equation}
+
+\subsection*{La ecuación clásica de las prestaciones de la CPU}
+
+\begin{equation}
+    Tiempo\hspace{2pt}de\hspace{2pt}ejecucion = Numero\hspace{2pt}de\hspace{2pt}instrucciones\hspace{2pt}\times\hspace{2pt}CPI\hspace{2pt}\times\hspace{2pt}Tiempo\hspace{2pt}de\hspace{2pt}Ciclo
+\end{equation}
+
+\begin{equation}
+    Ciclos\hspace{2pt}de\hspace{2pt}reloj\hspace{2pt}CPU = \sum_{i=1}^{n}(CPI_i\hspace{2pt}\times\hspace{2pt}C_i)
+\end{equation}
+
+\begin{equation}
+    CPI = \frac{Ciclos\hspace{2pt}de\hspace{2pt}reloj\hspace{2pt}de\hspace{2pt}CPU}{Numero\hspace{2pt}de\hspace{2pt}instrucciones}
+\end{equation}
+
+\begin{equation}
+    Tiempo = \frac{Segundos}{Programa} = \frac{Instrucciones}{Programa} \times \frac{Ciclos\hspace{2pt}de\hspace{2pt}Reloj}{Instruccion} \times \frac{Segundos}{Ciclos\hspace{2pt}de\hspace{2pt}Reloj}
+\end{equation}
+
+\section*{El muro de la potencia}
+
+\begin{equation}
+    Potencia = Carga\hspace{2pt}Capacitiva \times Voltaje_2 \times Frecuencia\hspace{2pt}de\hspace{2pt}conmutacion
+\end{equation}
+
+\subsection*{Casos reales: fabricación y evaluación del AMD Opteron x4 }
+\subsection*{Coste de un Circuito Integrado}
+
+\begin{equation}
+    Coste\hspace{2pt}por\hspace{2pt}dado = \frac{Coste\hspace{2pt}por\hspace{2pt}oblea}{Dado\hspace{2pt}por\hspace{2pt}oblea \times Factor\hspace{2pt}de\hspace{2pt}produccion}
+\end{equation}
+
+\begin{equation}
+    Dados\hspace{2pt}por\hspace{2pt}Oblea = \frac{Area\hspace{2pt}de\hspace{2pt}la\hspace{2pt}oblea}{Area\hspace{2pt}del\hspace{2pt}dado}
+\end{equation}
+
+
+\begin{equation}
+    Factor\hspace{2pt}de\hspace{2pt}Produccion = \frac{1}{(1 + (Defectos\hspace{2pt}por\hspace{2pt}area \times Area\hspace{2pt}del\hspace{2pt}dado / 2))^2}
+\end{equation}
+
+\subsection*{Evaluación de la CPU con programas de prueba SPEC}    
+
+\begin{equation}
+    n \sqrt{\prod_{i=1}^{n} Relaciones\hspace{2pt}de\hspace{2pt}tiempos\hspace{2pt}de\hspace{2pt}ejecucion_i}
+\end{equation}
+
+\begin{equation}
+    ssjops\hspace{2pt}global\hspace{2pt}por\hspace{2pt}vatio = (\sum_{i = 0}^{10} ssjops_i )/(\sum_{i=0}^{10} potencia_i )
+\end{equation}
+
+\section*{Falacias y errores habituales}
+\subsection*{Ley de Amdahl}
+
+\begin{equation}
+    Tiempos\hspace{2pt}ejec.\hspace{2pt}despues\hspace{2pt}mejoras = \frac{Tiempo\hspace{2pt}ejec.\hspace{2pt}por\hspace{2pt}mejora}{Cantidad\hspace{2pt}mejora} + Tiempo\hspace{2pt}ejec.\hspace{2pt}no\hspace{2pt}afectado
+\end{equation}
+
+\subsection*{MIPS}
+
+\begin{equation}
+    MIPS = \frac{Número\hspace{2pt}de\hspace{2pt}instrcciones}{Tiempo\hspace{2pt}de\hspace{2pt}ejecución\times10^6}
+\end{equation}
+
+\begin{equation}
+    MIPS = \frac{Número\hspace{2pt}de\hspace{2pt}instrucciones}{\frac{Número\hspace{2pt}de\hspace{2pt}instrucciones\times CPI}{Frecuencia\hspace{2pt}de\hspace{2pt}reloj}\times 10^6} = \frac{Frecuencia\hspace{2pt}de\hspace{2pt}reloj}{CPI \times 10^6}
+\end{equation}
+\end{document}
