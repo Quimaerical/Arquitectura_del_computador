@@ -35,8 +35,7 @@
 	Imprime y registra los resultados del acceso, el número de bloque y el contenido del bloque.
 	
 Después de definir estos procedimientos, el código principal se encuentra en la función main. Aquí se realiza lo siguiente:
-Se define el nombre del archivo de direcciones direccion y un vector de bloques bloques.
-Se crea un objeto ofstream llamado log para escribir el registro de resultados, y se abre en modo de adjuntar (std::ios::app).
-Se establece la semilla para generar números aleatorios utilizando std::srand y std::time(nullptr).
+Se define el nombre del archivo de direcciones y un vector de bloques.
+Se crea un objeto ofstream llamado log para escribir el registro de resultados, y se abre en modo de adjuntar (ios::app).
 Se llama a cada uno de los procedimientos correspDirecta, correspAsocConjuntos y correspAsociativa, pasando los parámetros correspondientes.
-Se cierra el archivo log.
+Se cierra el archivo log y termina el programa.
