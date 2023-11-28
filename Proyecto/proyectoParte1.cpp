@@ -1,3 +1,31 @@
+/*
+Este programa es una simulación de diferentes técnicas de mapeo de caché: mapeo directo, mapeo asociativo por conjuntos y mapeo totalmente asociativo. 
+Toma un archivo como entrada, que contiene una secuencia de direcciones de bloque. Luego, el programa simula los accesos a la caché basándose 
+en la técnica de mapeo especificada y registra los resultados en un archivo llamado "log.txt".
+
+A continuación se muestra un desglose de lo que hace cada técnica de mapeo:
+
+Mapeo directo: en esta técnica, cada dirección de bloque se asigna a un bloque de caché específico. 
+La dirección del bloque se divide por el número de bloques de caché y el resto se utiliza como índice para determinar el bloque de caché. 
+Si el bloque de caché está vacío, la dirección del bloque se almacena en ese bloque. Si el bloque de caché ya está ocupado, 
+se considera una falta de caché y la dirección del bloque se almacena en el bloque de caché, reemplazando el contenido anterior.
+
+Mapeo asociativo de conjuntos: esta técnica combina los beneficios del mapeo directo y el mapeo totalmente asociativo. E
+l caché se divide en varios conjuntos y cada conjunto contiene un número fijo de bloques de caché. 
+La dirección del bloque se divide por el número de conjuntos para determinar el índice del conjunto y luego se divide 
+por el número de bloques de caché por conjunto para determinar el índice del bloque dentro del conjunto. 
+Si el bloque de caché dentro del conjunto está vacío, la dirección del bloque se almacena en ese bloque. 
+Si el bloque de caché ya está ocupado, se considera una falta de caché y la dirección del bloque se almacena en el bloque de caché, reemplazando el contenido anterior.
+
+Mapeo totalmente asociativo: en esta técnica, cada dirección de bloque se puede almacenar en cualquier bloque de caché. 
+La dirección del bloque se busca en la caché y, si se encuentra, se considera un acierto de caché. Si no se encuentra la dirección del bloque, 
+se considera una pérdida de caché. En caso de que se pierda el caché, se selecciona aleatoriamente un bloque de caché disponible y 
+la dirección del bloque se almacena en ese bloque, reemplazando el contenido anterior, si corresponde.
+
+El programa genera el tipo de acceso (acierto o error de caché), el índice del bloque y el contenido del bloque 
+al que se accede para cada dirección de bloque en el archivo de entrada. Los resultados se muestran en la consola y se registran en el archivo "log.txt".
+*/
+
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -25,7 +53,7 @@ void correspDirecta(string direccion, vector<int>& bloques, ofstream& log) {
 		}
 		else {
 			fallo = true;
-			contenidoBloque = -1; // Cambiar a otro valor para representar contenido inv�lido
+			contenidoBloque = -1; // Cambiar a otro valor para representar contenido inválido
 			bloques[numBloque] = direccionBloque;
 		}
 
@@ -43,7 +71,7 @@ void correspDirecta(string direccion, vector<int>& bloques, ofstream& log) {
 void correspAsocConjuntos(string direccion, vector<int>& bloques, ofstream& log) {
 	ifstream direcciones(direccion);
 
-	int direccionBloque = 0; // Inicializaci�n con un valor predeterminado
+	int direccionBloque = 0; // Inicialización con un valor predeterminado
 
 	int numConjunto;
 	int numBloque;
@@ -99,7 +127,7 @@ void correspAsocConjuntos(string direccion, vector<int>& bloques, ofstream& log)
 void correspAsociativa(string direccion, vector<int>& bloques, ofstream& log) {
 	ifstream direcciones(direccion);
 
-	int direccionBloque = 0; // Inicializaci�n con un valor predeterminado
+	int direccionBloque = 0; // Inicialización con un valor predeterminado
 
 	int numBloque;
 	int contenidoBloque;
@@ -124,7 +152,7 @@ void correspAsociativa(string direccion, vector<int>& bloques, ofstream& log) {
 			}
 		}
 
-		// Si el bloque no est� en la cache, buscar un espacio disponible
+		// Si el bloque no está en la cache, buscar un espacio disponible
 		if (fallo) {
 			for (int i = 0; i < cache.size(); i++) {
 				if (cache[i] == -1) {
